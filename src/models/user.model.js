@@ -9,7 +9,6 @@ const userModel = new Schema({
   email: {
     type: String,
     require: true,
-    unquie: true
   },
   password: {
     type: String,
