@@ -4,6 +4,7 @@ import morgan from 'morgan'
 import { connectDb } from './database/connectDb.js'
 import authRoute from './routes/auth.route.js'
 import categoryRoute from './routes/category.route.js'
+import postRoute from './routes/post.route.js'
 
 const app = express()
 app.use(express.json())
@@ -11,6 +12,7 @@ app.use(helmet())
 app.use(morgan('common'))
 app.use('/api', authRoute)
 app.use('/api', categoryRoute)
+app.use('/api', postRoute)
 connectDb()
 
 export default app;
