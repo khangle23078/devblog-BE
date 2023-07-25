@@ -11,3 +11,7 @@ export const insertOne = (data) => {
 export const getById = (id) => {
   return Category.findById(id).exec()
 }
+
+export const editById = (id, data) => {
+  return Category.findByIdAndUpdate(id, data, { news: true }).exec()
+}
