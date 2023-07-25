@@ -9,7 +9,13 @@ export const register = async (req, res) => {
     const isUserExits = await emailUserExits(email)
     if (isUserExits) {
       throw new Error('Email đã được đăng ký')
+
+    const isUserExits = await emailUserExits(email)
+    if (isUserExits) {
+      throw new Error('Email đã được đăng ký')
     }
+    const user = new User({ userName, password, email })
+    await user.save()
     const user = new User({ userName, password, email })
     await user.save()
     return res.status(200).json({
