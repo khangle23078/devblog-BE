@@ -7,3 +7,7 @@ export const getAll = () => {
 export const insertOne = (data) => {
   return Category.create(data)
 }
+
+export const getById = (id) => {
+  return Category.findById(id).exec()
+}
