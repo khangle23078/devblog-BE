@@ -15,3 +15,7 @@ export const getById = (id) => {
 export const editById = (id, data) => {
   return Category.findByIdAndUpdate(id, data, { news: true }).exec()
 }
+
+export const deleteById = (id) => {
+  return Category.findByIdAndDelete(id, { news: true }).exec()
+}

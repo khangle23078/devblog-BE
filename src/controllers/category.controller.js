@@ -1,4 +1,4 @@
-import { editById, getAll, getById, insertOne } from './../services/category.service.js'
+import { deleteById, editById, getAll, getById, insertOne } from './../services/category.service.js'
 
 export const getCategories = async (req, res) => {
   try {
@@ -57,9 +57,27 @@ export const editCategory = async (req, res) => {
     const { id } = req.params;
     await editById(id, req.body)
     return res.status(200).json({
-      status : 200,
-      error : false,
-      message : "Sửa danh mục thành công"
+      status: 200,
+      error: false,
+      message: "Sửa danh mục thành công"
+    })
+  } catch (error) {
+    return res.status(500).json({
+      status: 500,
+      error: true,
+      message: error.message
+    })
+  }
+}
+
+export const deleteCategory = async (req, res) => {
+  try {
+    const { id } = req.params;
+    await deleteById(id)
+    return res.status(200).json({
+      status: 200,
+      error: false,
+      message: "Xóa danh mục thành công"
     })
   } catch (error) {
     return res.status(500).json({
