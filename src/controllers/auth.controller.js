@@ -1,15 +1,16 @@
-import createError from 'http-errors'
-import { registerUser } from '../services/auth.service';
-import userModel from '../models/user.model';
+import { emailUserExits } from '../services/auth.service';
+import User from '../models/user.model';
 
 export const register = async (req, res) => {
   try {
     const { userName, password, email } = req.body;
-    if (!userName || !password || !email) {
-      return next(createError[403])
+
+    const isUserExits = await emailUserExits(email)
+    if (isUserExits) {
+      throw new Error('Email đã được đăng ký')
     }
-    const User = new userModel({ userName, password, email })
-    await User.save()
+    const user = new User({ userName, password, email })
+    await user.save()
     return res.status(200).json({
       status: 200,
       error: false,
