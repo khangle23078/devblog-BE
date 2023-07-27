@@ -40,6 +40,7 @@ export const login = async (req, res) => {
       status: 200,
       error: false,
       data: {
+        _id: emailExits._id,
         email: emailExits.email,
         role: emailExits.role,
         accessToken: accessToken

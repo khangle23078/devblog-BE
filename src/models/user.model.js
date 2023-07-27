@@ -15,7 +15,7 @@ const userModel = new Schema({
     require: true
   },
   role: {
-    type: String,
+    type: [String],
     enum: ["USER", "ADMIN"],
     default: "USER"
   }
@@ -32,4 +32,4 @@ userModel.pre('save', async function (next) {
   }
 })
 
-export default model('User', userModel)
+export const user = model('User', userModel)

@@ -1,4 +1,4 @@
-import Category from "../models/categor.model"
+import Category from "../models/category.model"
 
 export const getAll = () => {
   return Category.find().exec()

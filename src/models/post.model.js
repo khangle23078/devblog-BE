@@ -5,15 +5,15 @@ const postModel = new Schema({
     type: String,
     require: true
   },
-  categories: [
+  category: [
     {
       type: Types.ObjectId,
-      ref: 'category'
+      ref: 'Category'
     }
   ],
-  author: {
+  user: {
     type: Types.ObjectId,
-    ref: 'user'
+    ref: 'User'
   },
   content: {
     type: String,
@@ -23,5 +23,5 @@ const postModel = new Schema({
   timestamps: true
 })
 
-export const post = model('post', postModel)
+export const post = model('Post', postModel)
 
