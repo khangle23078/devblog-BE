@@ -5,6 +5,16 @@ const postModel = new Schema({
     type: String,
     require: true
   },
+  thumbnail: {
+    url: {
+      type: String,
+      require: true
+    },
+    public_id: {
+      type: String,
+      require: true
+    }
+  },
   category: [
     {
       type: Types.ObjectId,
