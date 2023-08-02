@@ -10,3 +10,7 @@ export const getAll = (page, perPage) => {
 export const insertOne = (data) => {
   return post.create(data)
 }
+
+export const editOne = (id, data) => {
+  return post.findByIdAndUpdate(id, data).exec()
+}

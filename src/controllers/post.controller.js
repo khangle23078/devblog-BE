@@ -1,4 +1,4 @@
-import { getAll } from './../services/post.service.js'
+import { editOne, getAll } from './../services/post.service.js'
 import { post } from '../models/post.model.js';
 
 export const getPosts = async (req, res) => {
@@ -36,11 +36,28 @@ export const createPost = async (req, res) => {
       user: id
     })
     await newPost.save()
-    console.log(newPost);
     return res.status(201).json({
       status: 201,
       error: false,
       message: "Tạo bài viết thành công"
+    })
+  } catch (error) {
+    return res.status(500).json({
+      status: 500,
+      error: true,
+      message: error.message
+    })
+  }
+}
+
+export const editPost = async (req, res) => {
+  try {
+    const { id } = req.params;
+    await editOne(id, req.body)
+    return res.status(200).json({
+      status: 200,
+      error: false,
+      message: "Sửa bài viết thành công!"
     })
   } catch (error) {
     return res.status(500).json({

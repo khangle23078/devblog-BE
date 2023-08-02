@@ -1,10 +1,11 @@
 import { Router } from "express";
 import { checkAuth } from "../middlewares/auth.middleware";
-import { createPost, getPosts } from "../controllers/post.controller";
+import { createPost, editPost, getPosts } from "../controllers/post.controller";
 
 const route = Router()
 
 route.get('/posts/', checkAuth, getPosts)
-route.post('/post/:id', checkAuth, createPost)
+route.post('/posts/:id', checkAuth, createPost)
+route.put('/posts/:id', checkAuth, editPost)
 
 export default route;
