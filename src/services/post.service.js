@@ -14,3 +14,7 @@ export const insertOne = (data) => {
 export const editOne = (id, data) => {
   return post.findByIdAndUpdate(id, data).exec()
 }
+
+export const deleteOne = (id) => {
+  return post.findByIdAndDelete(id).exec()
+}

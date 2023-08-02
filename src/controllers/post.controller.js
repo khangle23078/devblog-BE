@@ -1,4 +1,4 @@
-import { editOne, getAll } from './../services/post.service.js'
+import { deleteOne, editOne, getAll } from './../services/post.service.js'
 import { post } from '../models/post.model.js';
 
 export const getPosts = async (req, res) => {
@@ -58,6 +58,24 @@ export const editPost = async (req, res) => {
       status: 200,
       error: false,
       message: "Sửa bài viết thành công!"
+    })
+  } catch (error) {
+    return res.status(500).json({
+      status: 500,
+      error: true,
+      message: error.message
+    })
+  }
+}
+
+export const deletePost = async (req, res) => {
+  try {
+    const { id } = req.params;
+    await deleteOne(id)
+    return res.status(200).json({
+      status: 200,
+      error: false,
+      message: 'Xóa bài viết thành công'
     })
   } catch (error) {
     return res.status(500).json({
