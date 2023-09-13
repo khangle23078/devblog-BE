@@ -1,9 +1,9 @@
-import { user } from "../models/user.model"
+import { User } from "../models/user.model"
 
 export const emailUserExits = (email) => {
-  return user.findOne({ email: email }).exec()
+  return User.findOne({ email: email }).exec()
 }
 
 export const loginUser = (data) => {
-  return user.create(data)
+  return User.create(data)
 }
