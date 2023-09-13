@@ -32,4 +32,4 @@ userModel.pre('save', async function (next) {
   }
 })
 
-export const user = model('User', userModel)
+export const User = model('User', userModel)
