@@ -7,14 +7,10 @@ export const getPosts = async (req, res) => {
     const page = parseInt(req.query.page) || 1;
     const posts = await getAll(page, perPage)
     return res.status(200).json({
-      status: 200,
-      error: false,
-      data: posts,
-      paginate: {
-        page: page,
-        limit: perPage,
-        totalPage: Math.round(posts.length / perPage)
-      }
+      posts,
+      page: page,
+      limit: perPage,
+      totalPage: Math.round(posts.length / perPage)
     })
   } catch (error) {
     return res.status(500).json({
