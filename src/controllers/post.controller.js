@@ -1,4 +1,4 @@
-import { deleteOne, editOne, getAll } from './../services/post.service.js'
+import { deleteOne, editOne, getAll, getOne } from './../services/post.service.js'
 import { post } from '../models/post.model.js';
 
 export const getPosts = async (req, res) => {
@@ -15,6 +15,24 @@ export const getPosts = async (req, res) => {
         limit: perPage,
         totalPage: Math.round(posts.length / perPage)
       }
+    })
+  } catch (error) {
+    return res.status(500).json({
+      status: 500,
+      error: true,
+      message: error.message
+    })
+  }
+}
+
+export const getPost = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const post = await getOne(req.id);
+    return res.status(200).message({
+      status: 200,
+      data: post,
+      error: false,
     })
   } catch (error) {
     return res.status(500).json({

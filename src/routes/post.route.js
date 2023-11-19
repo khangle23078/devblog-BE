@@ -5,6 +5,7 @@ import { createPost, deletePost, editPost, getPosts } from "../controllers/post.
 const route = Router()
 
 route.get('/posts/', checkAuth, getPosts)
+route.get('/posts/:id', checkAuth, getPosts)
 route.post('/posts', checkAuth, createPost)
 route.put('/posts/:id', checkAuth, editPost)
 route.delete('/posts/:id', checkAuth, deletePost)

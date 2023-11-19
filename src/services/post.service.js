@@ -7,6 +7,10 @@ export const getAll = (page, perPage) => {
     .exec()
 }
 
+export const getOne = (id) => {
+  return post.findById(id).exec();
+}
+
 export const insertOne = (data) => {
   return post.create(data)
 }
