@@ -28,7 +28,7 @@ export const getPosts = async (req, res) => {
 export const getPost = async (req, res) => {
   const { id } = req.params;
   try {
-    const post = await getOne(req.id);
+    const post = await getOne(id);
     return res.status(200).message({
       status: 200,
       data: post,
