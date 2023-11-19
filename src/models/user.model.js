@@ -15,7 +15,7 @@ const userModel = new Schema({
     require: true
   },
   role: {
-    type: [String],
+    type: String,
     enum: ["USER", "ADMIN"],
     default: "USER"
   }
