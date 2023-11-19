@@ -7,14 +7,8 @@ const postModel = new Schema(
       require: true,
     },
     thumbnail: {
-      url: {
-        type: String,
-        require: true,
-      },
-      public_id: {
-        type: String,
-        require: true,
-      },
+      type: String,
+      required: true
     },
     category: {
       type: Types.ObjectId,
