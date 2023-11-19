@@ -29,7 +29,7 @@ export const getPost = async (req, res) => {
   const { id } = req.params;
   try {
     const post = await getOne(id);
-    return res.status(200).message({
+    return res.status(200).json({
       status: 200,
       data: post,
       error: false,
