@@ -1,11 +1,11 @@
 import { Router } from "express";
 import { checkAuth } from "../middlewares/auth.middleware";
-import { createPost, deletePost, editPost, getPosts } from "../controllers/post.controller";
+import { createPost, deletePost, editPost, getPost, getPosts } from "../controllers/post.controller";
 
 const route = Router()
 
 route.get('/posts/', checkAuth, getPosts)
-route.get('/posts/:id', checkAuth, getPosts)
+route.get('/posts/:id', checkAuth, getPost)
 route.post('/posts', checkAuth, createPost)
 route.put('/posts/:id', checkAuth, editPost)
 route.delete('/posts/:id', checkAuth, deletePost)
